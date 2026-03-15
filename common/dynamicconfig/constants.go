@@ -3008,8 +3008,8 @@ because executions scanner support for SQL is not yet implemented.`,
 	)
 	HistoryScannerDataMinAge = NewGlobalDurationSetting(
 		"worker.historyScannerDataMinAge",
-		60*24*time.Hour,
-		`HistoryScannerDataMinAge indicates the history scanner cleanup minimum age.`,
+		7*24*time.Hour,
+		`HistoryScannerDataMinAge indicates the history scanner cleanup minimum age. History branches older than this are eligible for orphan cleanup. Set lower (e.g. match namespace retention) to prevent history_node table growth; higher values delay cleanup of orphaned history from failed deletes.`,
 	)
 	HistoryScannerVerifyRetention = NewGlobalBoolSetting(
 		"worker.historyScannerVerifyRetention",
